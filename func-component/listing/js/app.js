@@ -1,17 +1,15 @@
 'use strict';
 
-fetch("https://neto-api.herokuapp.com/etsy").then(response => {
-  if (200 <= response.status && response.status < 300) {
-    return response;
-  }
-  throw new Error(response.statusText);
+const xhr = new XMLHttpRequest();
+xhr.open('GET', "https://neto-api.herokuapp.com/etsy");
+xhr.send()
+
+xhr.addEventListener('load', function() {
+    if (200 <= xhr.status && xhr.status < 300) {
+        let books = JSON.parse(xhr.responseText)
+        ReactDOM.render(<Listing items={books}/>, document.getElementById('root'));
+    }
 })
-  .then(response => response.json())
-  .then(response => {
-    ReactDOM.render(
-      <Listing items={response}/>, document.getElementById('root'));
-  })
-  .catch(err => console.log(err));
 
 Listing.defaultProps = {
   items: []
@@ -59,5 +57,5 @@ function Listing({items}) {
   })
 
   return (<div class="item-list">{showItemList}</div>)
-  
+
 }
