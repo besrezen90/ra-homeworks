@@ -5,13 +5,14 @@ Stars.defaultProps = {
 };
 
 function CalcStars(count) {
-  let StarsArray = []
+  const starsArray = []
   for (let i = 0; i < count; i++) {
-    StarsArray.push(
-      <li><Star/></li>
+    starsArray.push(
+      <li key={i}><Star/></li>
     )
   }
-  return StarsArray;
+
+  return starsArray;
 }
 
 function Stars({count}) {
