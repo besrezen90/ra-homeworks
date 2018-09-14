@@ -56,6 +56,6 @@ function Listing({items}) {
     )
   })
 
-  return (<div class="item-list">{showItemList}</div>)
+  return (<div className="item-list">{showItemList}</div>)
 
 }
