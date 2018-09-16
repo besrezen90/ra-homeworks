@@ -2,7 +2,7 @@
 
 function FeedbackForm({data, onSubmit}) {
     const subForm = (e) => {
-        event.preventDefault()
+        e.preventDefault()
         const elements = e.currentTarget.elements;
         const form = {
             salutation: elements.salutation.value,
@@ -12,7 +12,7 @@ function FeedbackForm({data, onSubmit}) {
             message: elements.message.value,
             snacks: Array.from(elements.snacks).filter(elem => elem.checked).map(elem => elem.value)
         }
-        event.currentTarget.submit(JSON.stringify(form))
+        onSubmit(JSON.stringify(form))
 
     }
   return (
