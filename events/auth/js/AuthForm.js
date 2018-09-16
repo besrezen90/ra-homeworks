@@ -9,7 +9,7 @@ const AuthForm = (props) => {
       email: form.elements[1].value,
       password: form.elements[2].value
     }
-    if(typeof props.onAuth == 'function' && Object.values(user).includes('')) props.onAuth(user)
+    if(typeof props.onAuth == 'function' && !Object.values(user).includes('')) props.onAuth(user)
     else return
   }
 
