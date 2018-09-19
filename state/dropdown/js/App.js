@@ -30,7 +30,6 @@ class App extends React.Component {
             <span>Account Settings</span>
             <i className="material-icons">public</i>
           </button>
-          {/* <List options={this.options} /> */}
           <ul className="dropdown">
             {this.options.map((option, i) => (
               <li
