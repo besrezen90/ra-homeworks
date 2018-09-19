@@ -1,38 +1,23 @@
 'use strict'
 
-
 class App extends React.Component {
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {
-      selected: 'All',
-      projects: props.projects
-    }
+      selected: 'All'
+    };
   }
-
-  changeFilter = (filter) => {
-    
-    this.setState({
-      selected: filter,
-      projects: this.props.projects.filter( elem => { return this.state.selected === 'All' ? elem : elem.category === this.state.selected})
-    })
-  }
-
-  // filterProjects = () => {
-  //   this.props.projects.filter( elem => { return this.state.selected === 'All' ? elem : elem.category === this.state.selected})
-  //   // console.table(this.state.projects)
-  // }
-
+  
+  changeFilter = (filter) => {this.setState({selected: filter})}
 
   render() {
-    // this.filterProjects()
     return (
       <div>
         <Toolbar
           filters={this.props.filters}
-          selected={this.state.selected}
-          onSelectFilter={this.changeFilter} />
-        <Portfolio projects={this.state.projects} />
+           selected={this.state.selected}
+           onSelectFilter={this.changeFilter} />
+         <Portfolio projects={this.props.projects.filter(item => this.state.selected === "All" ? item : item.category === this.state.selected)} />
       </div>
     )
   }
