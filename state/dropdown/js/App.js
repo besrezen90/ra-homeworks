@@ -1,24 +1,25 @@
 'use strict'
 
 class App extends React.Component {
+
   constructor (props) {
     super (props);
     this.state = {
       open: false,
       active: this.props.options[0]
-    }
-    this.options = !this.props.options && typeof this.props.options == 'object' ? [] : this.props.options
-  }
+    };
+    this.options = !this.props.options && typeof this.props.options == 'object' ? [] : this.props.options;
+  };
 
   handleOpenMenu = () => {
     this.setState({
       open: this.state.open === false ? true : false
-    })
-  }
+    });
+  };
 
   handleChange = (e) => {
     this.setState({active: e})
-  }
+  };
 
 
   render() {
@@ -33,7 +34,7 @@ class App extends React.Component {
           <ul className="dropdown">
             {this.options.map((option, i) => (
               <li
-                ket={i}
+                key={i}
                 className={option === this.state.active ? "active" : ""}
                 onClick={() => this.handleChange(option)} >
                   <a href="#">{option}</a>
@@ -42,6 +43,6 @@ class App extends React.Component {
           </ul>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
