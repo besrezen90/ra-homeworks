@@ -1,18 +1,31 @@
 'use strict';
 
-const VIEW_LIST = "view_list";
-const VIEW_MODULE = "view_module";
-
 class App extends React.Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      viev: true,
+      icon: "view_module"
+    }
+  }
+
+  changeViev = () => {
+    
+    this.setState({
+      viev: this.state.viev === true ? false : true,
+      icon: this.state.icon === "view_module" ? "view_list" : "view_module"
+    })
+  }
+
   render() {
     return (
       <div>
         <div className="toolbar">
           <IconSwitch
-            icon={VIEW_MODULE}
-            onSwitch={() => console.log("сменился тип вывода")} />
+            icon={this.state.icon}
+            onSwitch={this.changeViev} />
         </div>
-        {this.renderLayout(true)}
+        {this.renderLayout(this.state.viev)}
       </div>
     );
   }
