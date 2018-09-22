@@ -25,7 +25,7 @@ class App extends React.Component {
     ];
 
     return (
-        <Main>
+        <Main {...this.props}>
             {list.map((item, idx) => (
                <ArticleWidget 
                   {...item}
@@ -44,7 +44,9 @@ class Main extends React.Component {
       
       return (    
         <main className="main">
-          {children}
+            <h2 className="title">{this.props.title}</h2>
+
+            {children}
         </main>
       );
     }
