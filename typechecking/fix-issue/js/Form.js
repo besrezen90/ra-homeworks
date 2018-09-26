@@ -1,6 +1,7 @@
 'use strict';
 
 const Form = (props) => {
+
   return (
     <div className="col-md-5 offset-md-4">
       <h1 className="text-center">Обновления профиля</h1>
@@ -46,10 +47,13 @@ Form.propTypes = {
   handleSubmit: PropTypes.func,
   handleChange: PropTypes.func,
 
-  email: PropTypes.number,
+  email: PropTypes.string.isRequired,
   first_name: PropTypes.string,
   last_name: PropTypes.string,
-  age: PropTypes.integer,
+  age: PropTypes.node.isRequired,
   nickname: PropTypes.string,
-  is_married: PropTypes.integer
+  is_married: PropTypes.bool
 };
+
+
+
