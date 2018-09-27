@@ -1,5 +1,16 @@
 'use strict';
 
+const createMonth = (num) => {
+  num++
+  if(num < 10) return '0' + num;
+  return num
+}
+
+const createDate = (num) => {
+  if(num < 10) return '0' + num;
+  return num
+}
+
 const DateInput = props => {
   return (
     <div className="form-group">
@@ -9,3 +20,16 @@ const DateInput = props => {
     </div>
   )
 };
+
+const date = new Date();
+
+DateInput.defaultProps = {
+  value: date.getFullYear() + '-' + createMonth(date.getMonth()) + '-' + createDate(date.getDate())
+}
+
+DateInput.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func
+}
