@@ -1,18 +1,18 @@
 class Menu extends React.Component {
-    constructor (props) {
-        super(props)
-    }
+  constructor (props) {
+    super(props)
+  }
 
-    render() {
-        return (
-            <nav className="menu">
-              <NavLink exact to="/" className="menu__item" activeClassName='menu__item-active'>Главная</NavLink>
-              <NavLink exact to="/drift" className="menu__item" activeClassName='menu__item-active'>Дрифт-такси</NavLink>
-              <NavLink exact to="/timeattack" className="menu__item" activeClassName='menu__item-active'>Time Attack</NavLink>
-              <NavLink exact to="/forza" className="menu__item" activeClassName='menu__item-active'>Forza Karting</NavLink>
-            </nav>
-        )
-    }
+  render() {
+    return (
+      <nav className="menu">
+        <NavLink exact to="/" className="menu__item" activeClassName='menu__item-active'>Главная</NavLink>
+        <NavLink to="/drift" className="menu__item" activeClassName='menu__item-active'>Дрифт-такси</NavLink>
+        <NavLink to="/timeattack" className="menu__item" activeClassName='menu__item-active'>Time Attack</NavLink>
+        <NavLink to="/forza" className="menu__item" activeClassName='menu__item-active'>Forza Karting</NavLink>
+      </nav>
+    )
+  }
 }
 
 
