@@ -13,13 +13,13 @@ class ProgressBar extends React.Component {
     );
   }
 
+  componentWillReceiveProps() {
+    this.createBar()
+  }
+  
   componentDidMount() {
     this.createBar()
   }
-
-  componentWillReceiveProps() {
-    this.createBar()
-  } 
 
   createBar() {
     const canvas = document.querySelector('#progressCanvas');
@@ -53,7 +53,4 @@ class ProgressBar extends React.Component {
     return this.props.completed / this.props.total
   }
 
-componentWillUpdate() {
-    this.createBar()
-  }
 }
