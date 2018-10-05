@@ -17,6 +17,10 @@ class ProgressBar extends React.Component {
     this.createBar()
   }
 
+  componentWillReceiveProps() {
+    this.createBar()
+  } 
+
   createBar() {
     const canvas = document.querySelector('#progressCanvas');
     canvas.width = canvas.offsetWidth;
@@ -39,9 +43,9 @@ class ProgressBar extends React.Component {
 
     ctx.beginPath();
     ctx.font = 'italic 24px Arial';
-    ctx.textAlign = "top";
-    ctx.textBaseline = "right";
-		ctx.fillText(Math.ceil(this.changeBar() * 100)+ '%', x-20, 62);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText((this.changeBar() * 100).toFixed(0) + '%', canvas.width / 2, canvas.height / 2);
   }
 
 
