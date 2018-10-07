@@ -40,24 +40,41 @@ function withUpdate(Component, filter){
                 elem.month = date.toLocaleString("en-us", {month: "short"});
             });
 
-            if(fl) return arr.sort(this.dateSort);
-            else return arr;
+            if(fl === 'date') return this.groupSort(arr, fl).sort(this.dateSort);
+            else return this.groupSort(arr, fl);
         }
 
         dateSort = (a, b) => {
             return new Date(a.date).getTime() - new Date(b.date).getTime();
         }
 
+        groupSort = (array, metod) => {
+            const list = [];
+            if(array.length === 0) return
+            array.forEach(item => {
+                let obj = {};
+                obj[metod] = item[metod];
+                obj.amount = item.amount;
+                
+                let a = list.filter(el => el[metod] === obj[metod])
+                if (a.length === 0) list.push(obj)
+                else {
+                    a[0].amount += obj.amount
+                }                
+            })
+            return list
+        }
+
         render() {
             const props = {
                 list: this.sortDate(this.props.list, filter)
-            };  
+            };
                        
             return <Component {...this.props} {...props}/> 
         }
     }
 }
 
-const MonthTableUpdate = withUpdate(MonthTable)
-const YearTableUpdate = withUpdate(YearTable)
-const SortTableUpdate = withUpdate(SortTable, true)
+const MonthTableUpdate = withUpdate(MonthTable, 'month')
+const YearTableUpdate = withUpdate(YearTable, 'year')
+const SortTableUpdate = withUpdate(SortTable, 'date')
