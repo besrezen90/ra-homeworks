@@ -56,10 +56,10 @@ function withUpdate(Component, filter){
                 obj[metod] = item[metod];
                 obj.amount = item.amount;
                 
-                let a = list.filter(el => el[metod] === obj[metod])
-                if (a.length === 0) list.push(obj)
+                let lastObj = list.filter(el => el[metod] === obj[metod])
+                if (lastObj.length === 0) list.push(obj)
                 else {
-                    a[0].amount += obj.amount
+                    lastObj[0].amount += obj.amount
                 }                
             })
             return list
