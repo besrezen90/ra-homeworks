@@ -2,7 +2,6 @@ class Homepage extends React.Component {
   render() {
     return (
       <div>
-        <Nav />
         <div className="container">
           <div className="row m-3">
             <div className="col-sm">
