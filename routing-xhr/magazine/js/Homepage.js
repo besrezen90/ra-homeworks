@@ -1,8 +1,11 @@
 class Homepage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const {match} = this.props
     return (
       <div>
-        <Nav />
         <div className="container">
           <div className="row m-3">
             <div className="col-sm">
@@ -10,7 +13,7 @@ class Homepage extends React.Component {
               <img className="card-img-top" src={`https://picsum.photos/800/180}`} alt="Подписка" />
                 <div className="card-body">
                   <p className="card-text">Уникальная возможность — подписаться на издание!</p>
-                  <a href="/routing-xhr/magazine/subscribtion" className="btn btn-primary">Подписаться</a>
+                  <Link to={`${match.url}subscribtion`} className="btn btn-primary">Подписаться</Link>
                 </div>
               </div>
             </div>
