@@ -1,7 +1,6 @@
 'use strict';
 
 const DateTime = props => {
-  console.log(props)
   return (
     <p className="date">{props.date}</p>
   )
