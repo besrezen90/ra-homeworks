@@ -19,14 +19,15 @@ class Form extends React.Component {
       this.handleForm,
     )
   }
-
-  handleForm() {
-    setTimeout(function() {
-      const { name, text } = this.state
+  sendForm = () => {
+    const { name, text } = this.state
       console.log(name, text)
 
       this.setState({ done: false })
-    }, 1000)
+  }
+
+  handleForm() {
+    setTimeout(this.sendForm, 1000)
   }
 
   handleNameChange(e) {
