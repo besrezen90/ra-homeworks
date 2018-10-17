@@ -28,15 +28,15 @@ class Site extends React.Component {
             {this.state.ids.map(id => <li key={id}>{id}</li>)}
           </ul>
         </main>
+        <Alert newKey={this.newId} />
       </div>
     );
   }
 
   generate() {
-    const newId = makeid(random(5, 43, false));
-
+    this.newId = makeid(random(5, 43, false));
     this.setState(prevState => ({
-      ids: [...prevState.ids, newId],
+      ids: [...prevState.ids, this.newId],
     }));
   }
 }
