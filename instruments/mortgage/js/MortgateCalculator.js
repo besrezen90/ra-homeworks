@@ -2,27 +2,20 @@ const {Form, Select, Input, Button} = window['antd'];
 const FormItem = Form.Item;
 const InputGroup = Input.Group;
 
-
-
-
-function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field]);
-}
-
-
-const MortgateCalculator = () => (
-  <div>
-    <Form className="select-form" action="">
-      <FormItem><Autocomplete /> </FormItem>
-      <FormItem>
-        <InputGroup>
-          <Inputs/>
-        </InputGroup>  
-      </FormItem>
-      <FormItem><Button type="primary">Отправить</Button></FormItem>
-    </Form>
-  </div>
-);
-
+const MortgateCalculator = () => {
+  return (
+    <div>
+      <Form className="select-form" action="">
+        <FormItem><Autocomplete /></FormItem>
+        <FormItem>
+          <InputGroup>
+            <Inputs/>
+          </InputGroup>  
+        </FormItem>
+        <FormItem><Button type="primary">Отправить</Button></FormItem>
+      </Form>
+    </div>
+  )
+};
 
 
