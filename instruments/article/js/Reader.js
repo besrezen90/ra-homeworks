@@ -22,7 +22,7 @@ class Reader extends React.Component {
   }
 
   countPage(total, page, count) {
-    let nextPage = page + count;
+    const nextPage = page + count;
     if(nextPage < 1) return 1
     if(nextPage > total) return total
     return nextPage
